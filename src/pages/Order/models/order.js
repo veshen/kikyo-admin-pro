@@ -1,4 +1,4 @@
-import { fakeChartData, queryOrderList } from '@/services/api';
+import { fakeChartData, queryOrderList, exportOrderQueryList } from '@/services/api';
 
 export default {
   namespace: 'order',
@@ -40,27 +40,26 @@ export default {
               value:8,
           }
       ],
-    loading: false,
     orderList : [],
     total : 0
   },
 
   effects: {
     *queryOrderList(action, { call, put }) {
-        // yield put({
-        //   type: 'save',
-        //   payload: {loading:true},
-        // });
       const response = yield call(queryOrderList,action.data);
       yield put({
         type: 'save',
         payload: response.data,
       });
-      // yield put({
-      //   type: 'save',
-      //   payload: {loading:false},
-      // });
     },
+    *exportOrderQueryList(action, { call, put }) {
+      const response = yield call(exportOrderQueryList,action.data);
+      yield put({
+        type: 'save',
+        payload: response.data,
+      });
+    },
+
   },
 
   reducers: {

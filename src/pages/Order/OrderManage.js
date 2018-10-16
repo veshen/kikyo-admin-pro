@@ -27,15 +27,18 @@ import moment from 'moment';
 const {TabPane} = Tabs;
 const {RangePicker} = DatePicker;
 const Option = Select.Option;
-@connect(({order, loading}) => ({order, loading: loading.effects['order/fetch']}))@Form.create()
-// @connect(
-//   state => ({
-//     loading: state.loading, // get(state, 'loading.global'),
-//   })
-// )@Form.create()
+
+@connect(({ order, loading }) => ({
+  order,
+  queryOrderListLoading : loading.effects['order/queryOrderList'],
+}))@Form.create()
+
 class Index extends Component {
   constructor(props) {
     super(props);
+  }
+  componentDidMount() {
+
   }
   handleSubmit = (e) => {
       e.preventDefault();
@@ -48,6 +51,17 @@ class Index extends Component {
               values.bookDate = values.bookDate ? values.bookDate.format('YYYY-MM-DD') : null;
               values.orderDate = values.orderDate ? values.orderDate.format('YYYY-MM-DD') : null;
               this.props.dispatch({type: 'order/queryOrderList',data:{...values,page:page,pageSize:30}})
+          }
+      });
+  }
+  exportXls(){
+      this.props.form.validateFields((err, values) => {
+          if (!err) {
+              const { fetchData } = this.props;
+              values.bookDate = values.bookDate ? values.bookDate.format('YYYY-MM-DD') : null;
+              values.orderDate = values.orderDate ? values.orderDate.format('YYYY-MM-DD') : null;
+              this.props.dispatch({type: 'order/exportOrderQueryList',data:{...values}})
+              // fetchData({funcName: 'exportOrderQueryList',params:{...values}});
           }
       });
   }
@@ -215,7 +229,7 @@ class Index extends Component {
               </Col>
               <Col span={6} >
                   <Form.Item>
-                      <Button type="primary" onClick={this.queryOrderList.bind(this,1)} loading={this.props.order.loading}>查询</Button>
+                      <Button type="primary" onClick={this.queryOrderList.bind(this,1)} loading={this.props.queryOrderListLoading}>查询</Button>
                       <Button type="primary" onClick={this.exportXls.bind(this)}>导出</Button>
                   </Form.Item>
               </Col>
@@ -230,6 +244,7 @@ class Index extends Component {
                     columns={columns}
                     dataSource={this.props.order.orderList}
                     rowKey={record => record.orderId}
+                    loading={this.props.queryOrderListLoading}
                     />
             </Col>
         </Row>

@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
-import * as http from './../axios/index';
+// import * as http from './../axios/index';
 
 /**
  * 请求数据调用方法
@@ -37,7 +37,22 @@ export async function queryOrderList(params) {
   });
   // return http['getOrderList'](params).then(res => res);
 }
+//首页大盘 豆腐块
+export async function getIndexDetailList() {
+  return request('https://kk.sa-green.cn/business/dashboard/detail');
+}
+//首页大盘 豆腐块
+export async function getIndexSaleList() {
+  return request('https://kk.sa-green.cn/business/dashboard/saleList');
+}
+//首页大盘 豆腐块
+export async function getIndexOrderList() {
+  return request('https://kk.sa-green.cn/business/dashboard/orderList');
+}
 
+export async function exportOrderQueryList(params) {
+  return request('https://kk.sa-green.cn/business/dashboard/orderList');
+}
 
 
 export async function queryProjectNotice() {

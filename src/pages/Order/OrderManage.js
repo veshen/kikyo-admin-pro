@@ -66,7 +66,6 @@ class Index extends Component {
       });
   }
   componentDidMount() {}
-  exportXls(){}
   render() {
     const {form: {
         getFieldDecorator
@@ -162,7 +161,13 @@ class Index extends Component {
             align : 'center'
         },
     ];
-    console.log(this.props);
+    const pagination = {
+      total:this.props.order.total,
+      pageSize: 30,
+      onChange :  (page) => {
+          this.queryOrderList(page);
+      }
+    };
     return (<PageHeaderWrapper>
       <Card title="订单查询" className={styles.card} bordered={false}>
         <Form layout="vertical">
@@ -171,6 +176,7 @@ class Index extends Component {
               <Form.Item label='订单号'>
                 {
                   getFieldDecorator('orderId', {
+                      initialValue: '',
                   })(<Input placeholder="请输入订单号"/>)
                 }
               </Form.Item>
@@ -179,6 +185,7 @@ class Index extends Component {
               <Form.Item label='手机号'>
                 {
                   getFieldDecorator('mobile', {
+                      initialValue: '',
                   })(<Input placeholder="请输入手机号"/>)
                 }
               </Form.Item>
@@ -227,9 +234,9 @@ class Index extends Component {
                 )}
                 </Form.Item>
               </Col>
-              <Col span={6} >
-                  <Form.Item>
-                      <Button type="primary" onClick={this.queryOrderList.bind(this,1)} loading={this.props.queryOrderListLoading}>查询</Button>
+              <Col span={6}>
+                  <Form.Item  label='&nbsp;'>
+                      <Button type="primary" onClick={this.queryOrderList.bind(this,1)} loading={this.props.queryOrderListLoading} style={{marginRight:'15px'}}>查询</Button>
                       <Button type="primary" onClick={this.exportXls.bind(this)}>导出</Button>
                   </Form.Item>
               </Col>
@@ -239,7 +246,7 @@ class Index extends Component {
             <Col>
                 <Table
                     title={()=><div style={{display:'flex',justifyContent: 'space-between',alignItems: 'center'}}><h3>订单列表 <span style={{fontSize:'12px'}}>共有{this.props.order.total}条数据</span></h3></div>}
-                    pagination={false}
+                    pagination={pagination}
                     bordered
                     columns={columns}
                     dataSource={this.props.order.orderList}

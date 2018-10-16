@@ -80,7 +80,7 @@ class LoginPage extends Component {
               login.type === 'account' &&
               !submitting &&
               this.renderMessage('账户或密码错误（admin/888888）')}
-            <UserName name="userName" placeholder="admin/user" />
+            <UserName name="name" placeholder="admin/user" />
             <Password
               name="password"
               placeholder="888888/123456"
@@ -99,12 +99,12 @@ class LoginPage extends Component {
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
               自动登录
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
+            {/*<a style={{ float: 'right' }} href="">
               忘记密码
-            </a>
+            </a>*/}
           </div>
           <Submit loading={submitting}>登录</Submit>
-          <div className={styles.other}>
+          {/*<div className={styles.other}>
             其他登录方式
             <Icon type="alipay-circle" className={styles.icon} theme="outlined" />
             <Icon type="taobao-circle" className={styles.icon} theme="outlined" />
@@ -112,7 +112,7 @@ class LoginPage extends Component {
             <Link className={styles.register} to="/User/Register">
               注册账户
             </Link>
-          </div>
+          </div>*/}
         </Login>
       </div>
     );

@@ -83,6 +83,12 @@ let routes = [
             "exact": true
           },
           {
+            "path": "/order/orderExport",
+            "name": "orderExport",
+            "component": dynamic({ loader: () => import('../Order/orderExport'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
+            "exact": true
+          },
+          {
             "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
           }
         ]

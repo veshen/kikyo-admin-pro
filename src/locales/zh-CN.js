@@ -19,6 +19,7 @@ export default {
   'menu.home': '首页',
   'menu.order': '订单',
   'menu.order.orderManage': '订单管理',
+  'menu.order.orderExport': '订单导出',
   'menu.dashboard': 'Dashboard',
   'menu.dashboard.analysis': '分析页',
   'menu.dashboard.monitor': '监控页',

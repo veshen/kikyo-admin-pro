@@ -1,5 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
+import { postExport } from './tools'
 // import * as http from './../axios/index';
 
 /**
@@ -35,7 +36,6 @@ export async function queryOrderList(params) {
       method: 'post',
     },
   });
-  // return http['getOrderList'](params).then(res => res);
 }
 //首页大盘 豆腐块
 export async function getIndexDetailList() {
@@ -51,9 +51,21 @@ export async function getIndexOrderList() {
 }
 
 export async function exportOrderQueryList(params) {
-  return request('https://kk.sa-green.cn/business/dashboard/orderList');
+  return postExport({url:'https://kk.sa-green.cn/business/order/list/export',data:params});
+}
+export async function exportOrderQueryInterval(params) {
+  return postExport({url:'https://kk.sa-green.cn/business/order/interval/export',data:params});
 }
 
+export async function fakeAccountLogin(params) {
+    return request('https://kk.sa-green.cn/business/user/login', {
+        method: 'POST',
+        body: {
+            ...params,
+            method: 'post',
+        },
+    });
+}
 
 export async function queryProjectNotice() {
   return request('/api/project/notice');
@@ -157,12 +169,7 @@ export async function updateFakeList(params) {
   });
 }
 
-export async function fakeAccountLogin(params) {
-  return request('/api/login/account', {
-    method: 'POST',
-    body: params,
-  });
-}
+
 
 export async function fakeRegister(params) {
   return request('/api/register', {

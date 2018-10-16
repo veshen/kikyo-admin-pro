@@ -9,18 +9,23 @@ export default {
   namespace: 'login',
 
   state: {
-    status: undefined,
+    status: true,
   },
 
   effects: {
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
-      yield put({
-        type: 'changeLoginStatus',
-        payload: response,
-      });
+      console.log(response);
+      // yield put({
+      //   type: 'changeLoginStatus',
+      //   payload: response,
+      // });
       // Login successfully
-      if (response.status === 'ok') {
+      if (response.code === 200) {
+          yield put({
+            type: 'changeLoginStatus',
+            payload: {status:true,currentAuthority:'user'},
+          });
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();

@@ -373,7 +373,7 @@ class Analysis extends Component {
                               </Tooltip>
                             }
                             loading={this.props.indexDetailListLoading}
-                            total={() => <Yuan>{item.value}</Yuan>}
+                            total={() => <div>{item.value}</div>}
                             contentHeight={46}
                           >
                           </ChartCard>

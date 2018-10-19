@@ -1,6 +1,7 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
 import { postExport } from './tools'
+import * as config from './config';
 // import * as http from './../axios/index';
 
 /**
@@ -29,7 +30,7 @@ function markUrl(link,data){
 //-------------------->
 //查询订单接口
 export async function queryOrderList(params) {
-  return request('https://kk.sa-green.cn/business/order/list', {
+  return request(config.ORDER_LIST, {
     method: 'POST',
     body: {
       ...params,
@@ -37,28 +38,59 @@ export async function queryOrderList(params) {
     },
   });
 }
+//反馈列表查询
+export async function queryFeedbackList(params) {
+  return request(config.QUERY_FEEDBACK_LIST, {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+//更新反馈状态
+export async function updateEventStatus(params) {
+  return request(config.UPDATE_EVENT_STATUS, {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+//删除反馈
+export async function deldteEventStatus(params) {
+  return request(config.DELDTE_EVENT_STATUS, {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
 //首页大盘 豆腐块
 export async function getIndexDetailList() {
-  return request('https://kk.sa-green.cn/business/dashboard/detail');
+  return request(config.INDEX_MODEL_LIST);
 }
-//首页大盘 豆腐块
+//首页大盘 销售额
 export async function getIndexSaleList() {
-  return request('https://kk.sa-green.cn/business/dashboard/saleList');
+  return request(config.INDEX_SALE_LIST);
 }
-//首页大盘 豆腐块
+//首页大盘 订单数
 export async function getIndexOrderList() {
-  return request('https://kk.sa-green.cn/business/dashboard/orderList');
+  return request(config.INDEX_ORDER_LIST);
 }
 
 export async function exportOrderQueryList(params) {
-  return postExport({url:'https://kk.sa-green.cn/business/order/list/export',data:params});
+  return postExport({url:config.ORDER_LIST_EXPORT,data:params});
 }
 export async function exportOrderQueryInterval(params) {
-  return postExport({url:'https://kk.sa-green.cn/business/order/interval/export',data:params});
+  return postExport({url:config.ORDER_INTERVAL_EXPORT,data:params});
 }
 
 export async function fakeAccountLogin(params) {
-    return request('https://kk.sa-green.cn/business/user/login', {
+    return request(config.LOGIN, {
         method: 'POST',
         body: {
             ...params,

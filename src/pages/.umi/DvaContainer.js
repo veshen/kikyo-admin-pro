@@ -17,15 +17,12 @@ app.model({ namespace: 'project', ...(require('/Users/wangwei/Documents/kikyo-pr
 app.model({ namespace: 'setting', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/models/setting.js').default) });
 app.model({ namespace: 'user', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/models/user.js').default) });
 app.model({ namespace: 'register', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/User/models/register.js').default) });
-app.model({ namespace: 'order', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Order/models/order.js').default) });
 app.model({ namespace: 'activities', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Dashboard/models/activities.js').default) });
 app.model({ namespace: 'chart', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Dashboard/models/chart.js').default) });
 app.model({ namespace: 'monitor', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Dashboard/models/monitor.js').default) });
+app.model({ namespace: 'order', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Order/models/order.js').default) });
+app.model({ namespace: 'feedback', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Feedback/models/feedback.js').default) });
 app.model({ namespace: 'form', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Forms/models/form.js').default) });
-app.model({ namespace: 'rule', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/List/models/rule.js').default) });
-app.model({ namespace: 'profile', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Profile/models/profile.js').default) });
-app.model({ namespace: 'error', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Exception/models/error.js').default) });
-app.model({ namespace: 'geographic', ...(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/pages/Account/Settings/models/geographic.js').default) });
 
 class DvaContainer extends Component {
   render() {

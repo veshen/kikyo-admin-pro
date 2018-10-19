@@ -18,6 +18,8 @@ export default {
   'component.noticeIcon.empty': '暂无数据',
   'menu.home': '首页',
   'menu.order': '订单',
+  'menu.feedback': '反馈',
+  'menu.feedback.feedbackManage': '反馈管理',
   'menu.order.orderManage': '订单管理',
   'menu.order.orderExport': '订单导出',
   'menu.dashboard': 'Dashboard',

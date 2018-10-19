@@ -13,27 +13,6 @@ let routes = [
     "exact": true
   },
   {
-    "path": "/form/step-form",
-    "name": "stepform",
-    "redirect": "/form/step-form/info",
-    "exact": true
-  },
-  {
-    "path": "/list/search",
-    "redirect": "/list/search/articles",
-    "exact": true
-  },
-  {
-    "path": "/account/center",
-    "redirect": "/account/center/articles",
-    "exact": true
-  },
-  {
-    "path": "/account/settings",
-    "redirect": "/account/settings/base",
-    "exact": true
-  },
-  {
     "path": "/",
     "redirect": "/dashboard/analysis",
     "exact": true
@@ -72,28 +51,6 @@ let routes = [
     ],
     "routes": [
       {
-        "path": "/order",
-        "name": "order",
-        "icon": "dashboard",
-        "routes": [
-          {
-            "path": "/order/orderManage",
-            "name": "orderManage",
-            "component": dynamic({ loader: () => import('../Order/OrderManage'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/order/orderExport",
-            "name": "orderExport",
-            "component": dynamic({ loader: () => import('../Order/orderExport'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-          }
-        ]
-      },
-      {
         "path": "/dashboard",
         "name": "dashboard",
         "icon": "dashboard",
@@ -105,172 +62,25 @@ let routes = [
             "exact": true
           },
           {
-            "path": "/dashboard/monitor",
-            "name": "monitor",
-            "component": dynamic({ loader: () => import('../Dashboard/Monitor'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/dashboard/workplace",
-            "name": "workplace",
-            "component": dynamic({ loader: () => import('../Dashboard/Workplace'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
             "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
           }
         ]
       },
       {
-        "path": "/form",
-        "icon": "form",
-        "name": "form",
-        "routes": [
-          {
-            "path": "/form/basic-form",
-            "name": "basicform",
-            "component": dynamic({ loader: () => import('../Forms/BasicForm'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/form/step-form",
-            "name": "stepform",
-            "component": dynamic({ loader: () => import('../Forms/StepForm'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "hideChildrenInMenu": true,
-            "routes": [
-              {
-                "path": "/form/step-form/info",
-                "name": "info",
-                "component": dynamic({ loader: () => import('../Forms/StepForm/Step1'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/form/step-form/confirm",
-                "name": "confirm",
-                "component": dynamic({ loader: () => import('../Forms/StepForm/Step2'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/form/step-form/result",
-                "name": "result",
-                "component": dynamic({ loader: () => import('../Forms/StepForm/Step3'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-              }
-            ]
-          },
-          {
-            "path": "/form/advanced-form",
-            "name": "advancedform",
-            "authority": [
-              "admin"
-            ],
-            "component": dynamic({ loader: () => import('../Forms/AdvancedForm'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-          }
-        ]
-      },
-      {
-        "path": "/list",
-        "icon": "table",
-        "name": "list",
-        "routes": [
-          {
-            "path": "/list/table-list",
-            "name": "searchtable",
-            "component": dynamic({ loader: () => import('../List/TableList'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/list/basic-list",
-            "name": "basiclist",
-            "component": dynamic({ loader: () => import('../List/BasicList'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/list/card-list",
-            "name": "cardlist",
-            "component": dynamic({ loader: () => import('../List/CardList'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/list/search",
-            "name": "searchlist",
-            "component": dynamic({ loader: () => import('../List/List'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "routes": [
-              {
-                "path": "/list/search/articles",
-                "name": "articles",
-                "component": dynamic({ loader: () => import('../List/Articles'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/list/search/projects",
-                "name": "projects",
-                "component": dynamic({ loader: () => import('../List/Projects'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/list/search/applications",
-                "name": "applications",
-                "component": dynamic({ loader: () => import('../List/Applications'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-              }
-            ]
-          },
-          {
-            "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-          }
-        ]
-      },
-      {
-        "path": "/profile",
-        "name": "profile",
+        "path": "/order",
+        "name": "order",
         "icon": "profile",
         "routes": [
           {
-            "path": "/profile/basic",
-            "name": "basic",
-            "component": dynamic({ loader: () => import('../Profile/BasicProfile'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
+            "path": "/order/orderManage",
+            "name": "orderManage",
+            "component": dynamic({ loader: () => import('../Order/OrderManage'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
             "exact": true
           },
           {
-            "path": "/profile/advanced",
-            "name": "advanced",
-            "authority": [
-              "admin"
-            ],
-            "component": dynamic({ loader: () => import('../Profile/AdvancedProfile'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-          }
-        ]
-      },
-      {
-        "name": "result",
-        "icon": "check-circle-o",
-        "path": "/result",
-        "routes": [
-          {
-            "path": "/result/success",
-            "name": "success",
-            "component": dynamic({ loader: () => import('../Result/Success'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/result/fail",
-            "name": "fail",
-            "component": dynamic({ loader: () => import('../Result/Error'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
+            "path": "/order/orderExport",
+            "name": "orderExport",
+            "component": dynamic({ loader: () => import('../Order/OrderExport'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
             "exact": true
           },
           {
@@ -279,99 +89,15 @@ let routes = [
         ]
       },
       {
-        "name": "exception",
+        "path": "/feedback",
+        "name": "feedback",
         "icon": "warning",
-        "path": "/exception",
         "routes": [
           {
-            "path": "/exception/403",
-            "name": "not-permission",
-            "component": dynamic({ loader: () => import('../Exception/403'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
+            "path": "/feedback/feedbackManage",
+            "name": "feedbackManage",
+            "component": dynamic({ loader: () => import('../Feedback/FeedbackManage'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
             "exact": true
-          },
-          {
-            "path": "/exception/404",
-            "name": "not-find",
-            "component": dynamic({ loader: () => import('../Exception/404'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/exception/500",
-            "name": "server-error",
-            "component": dynamic({ loader: () => import('../Exception/500'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "path": "/exception/trigger",
-            "name": "trigger",
-            "hideInMenu": true,
-            "component": dynamic({ loader: () => import('../Exception/TriggerException'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "exact": true
-          },
-          {
-            "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-          }
-        ]
-      },
-      {
-        "name": "account",
-        "icon": "user",
-        "path": "/account",
-        "routes": [
-          {
-            "path": "/account/center",
-            "name": "center",
-            "component": dynamic({ loader: () => import('../Account/Center/Center'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "routes": [
-              {
-                "path": "/account/center/articles",
-                "component": dynamic({ loader: () => import('../Account/Center/Articles'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/account/center/applications",
-                "component": dynamic({ loader: () => import('../Account/Center/Applications'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/account/center/projects",
-                "component": dynamic({ loader: () => import('../Account/Center/Projects'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-              }
-            ]
-          },
-          {
-            "path": "/account/settings",
-            "name": "settings",
-            "component": dynamic({ loader: () => import('../Account/Settings/Info'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-            "routes": [
-              {
-                "path": "/account/settings/base",
-                "component": dynamic({ loader: () => import('../Account/Settings/BaseView'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/account/settings/security",
-                "component": dynamic({ loader: () => import('../Account/Settings/SecurityView'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/account/settings/binding",
-                "component": dynamic({ loader: () => import('../Account/Settings/BindingView'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "path": "/account/settings/notification",
-                "component": dynamic({ loader: () => import('../Account/Settings/NotificationView'), loading: require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/src/components/PageLoading/index').default  }),
-                "exact": true
-              },
-              {
-                "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-              }
-            ]
           },
           {
             "component": () => React.createElement(require('/Users/wangwei/Documents/kikyo-project/kikyo-admin-pro/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
